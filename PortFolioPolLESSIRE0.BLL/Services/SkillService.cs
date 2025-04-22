@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.SignalR.Client;
 using Microsoft.AspNetCore.Components;
 using PortFolioPolLESSIRE0.DAL.Entities;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
 namespace PortFolioPolLESSIRE0.BLL.Services
 {
     public class SkillService : ISkillService
@@ -77,5 +79,39 @@ namespace PortFolioPolLESSIRE0.BLL.Services
                 return null;
             }
         }
+
+        public Skill UpdateSkill(int id, string name, string level, string description)
+        {
+            try
+            {
+                var UpdateSkill = _skillRepository.UpdateSkill(id, name, level, description);
+                return UpdateSkill;
+            }
+            catch (System.ComponentModel.DataAnnotations.ValidationException ex)
+            {
+
+                Console.WriteLine($"Validation error : {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error updating skill : {ex}");
+            }
+            return new Skill();
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Copyrite https://github.com/POLLESSI

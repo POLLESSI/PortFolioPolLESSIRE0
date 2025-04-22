@@ -8,6 +8,8 @@ using System.Data.SqlClient;
 using PortFolioPolLESSIRE0.DAL.Interfaces;
 using PortFolioPolLESSIRE0.DAL.Entities;
 using System.Data;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace PortFolioPolLESSIRE0.DAL.Repositories
 {
@@ -104,5 +106,66 @@ namespace PortFolioPolLESSIRE0.DAL.Repositories
                 return null;
             }
         }
+
+        public Education UpdateEducation(int id, string school, string degree, DateTime startDate, DateTime endDate, string description)
+        {
+            try
+            {
+                string sql = "UPDATE Education SET School = @school, Degree = @degree, StartDate = @startDate, EndDate = @endDate, Description = @description WHERE Id = @id";
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@school", school);
+                parameters.Add("@degree", degree);
+                parameters.Add("@startDate", startDate);
+                parameters.Add("@endDate", endDate);
+                parameters.Add("@description", description);
+                return _connection.QueryFirst<Education?>(sql, parameters);
+            }
+            catch (System.ComponentModel.DataAnnotations.ValidationException ex)
+            {
+
+                Console.WriteLine($"Validation error : {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error updating education : {ex}");
+            }
+            return new Education();
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Copyrite https://github.com/POLLESSI
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Copyrite https://github.com/POLLESSI

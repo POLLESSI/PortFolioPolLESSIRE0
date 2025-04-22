@@ -8,6 +8,8 @@ using System.Data.SqlClient;
 using PortFolioPolLESSIRE0.DAL.Interfaces;
 using PortFolioPolLESSIRE0.DAL.Entities;
 using System.Data;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace PortFolioPolLESSIRE0.DAL.Repositories
 {
@@ -103,5 +105,48 @@ namespace PortFolioPolLESSIRE0.DAL.Repositories
                 return null;
             }
         }
+
+        public Project UpdateProject(int id, string name, string description, string url, DateTime startDate, DateTime endDate)
+        {
+            try
+            {
+                string sql = "UPDATE Project SET Name = @name, Description = @description, Url = @url, StartDate = @startDate, EndDate = @endDate WHERE Id = @id";
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@name", name);
+                parameters.Add("@description", description);
+                parameters.Add("@url", url);
+                parameters.Add("@startDate", startDate);
+                parameters.Add("@endDate", endDate);
+                return _connection.QueryFirst<Project?>(sql, parameters);
+            }
+            catch (System.ComponentModel.DataAnnotations.ValidationException ex)
+            {
+
+                Console.WriteLine($"Validation error : {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error updating project : {ex}");
+            }
+            return new Project();
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Copyrite https://github.com/POLLESSI

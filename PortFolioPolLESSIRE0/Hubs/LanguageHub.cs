@@ -25,3 +25,20 @@ namespace PortFolioPolLESSIRE1.API.Hubs
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Copyrite https://github.com/POLLESSI

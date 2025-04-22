@@ -63,5 +63,27 @@ namespace PortFolioPolLESSIRE0.Controllers
             }
             return BadRequest("Registration Error");
         }
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateLanguage(int id, string name, string level)
+        {
+            _languageRepository.UpdateLanguage(id, name, level);
+            return Ok();
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Copyrite https://github.com/POLLESSI

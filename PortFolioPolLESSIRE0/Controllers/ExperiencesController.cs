@@ -63,5 +63,29 @@ namespace PortFolioPolLESSIRE0.Controllers
             }
             return BadRequest("Registration Error");
         }
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateExperience(int id, string company, string position, string description, DateTime startDate, DateTime endDate)
+        {
+            _experiencesRepository.UpdateExperience(id, company, position, description, startDate, endDate);
+            return Ok();
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Copyrite https://github.com/POLLESSI

@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.SignalR.Client;
 using Microsoft.AspNetCore.Components;
 using PortFolioPolLESSIRE0.DAL.Entities;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace PortFolioPolLESSIRE0.BLL.Services
 {
@@ -78,5 +80,43 @@ namespace PortFolioPolLESSIRE0.BLL.Services
                 return null;
             }
         }
+
+        public Experience UpdateExperience(int id, string company, string position, string description, DateTime startDate, DateTime endDate)
+        {
+            try
+            {
+                var UpdateExperience = _experienceRepository.UpdateExperience(id, company, position, description, startDate, endDate);
+                return UpdateExperience;
+            }
+            catch (System.ComponentModel.DataAnnotations.ValidationException ex)
+            {
+
+                Console.WriteLine($"Validation error : {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error updating experience : {ex}");
+            }
+            return new Experience();
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Copyrite https://github.com/POLLESSI

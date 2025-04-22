@@ -29,3 +29,17 @@ namespace PortFolioPolLESSIRE0.DTOs
         public DateTime LicenceDate { get; set; }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Copyrite https://github.com/POLLESSI

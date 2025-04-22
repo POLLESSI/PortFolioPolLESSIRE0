@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.SignalR.Client;
 using Microsoft.AspNetCore.Components;
 using PortFolioPolLESSIRE0.DAL.Entities;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace PortFolioPolLESSIRE0.BLL.Services
 {
@@ -78,5 +80,40 @@ namespace PortFolioPolLESSIRE0.BLL.Services
                 return null;
             }
         }
+
+        public Interest UpdateInterest(int id, string name, string description)
+        {
+            try
+            {
+                var UpdateInterest = _interestRepository.UpdateInterest(id, name, description);
+                return UpdateInterest;
+            }
+            catch (System.ComponentModel.DataAnnotations.ValidationException ex)
+            {
+
+                Console.WriteLine($"Validation error : {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error updating interest : {ex}");
+            }
+            return new Interest();
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Copyrite https://github.com/POLLESSI

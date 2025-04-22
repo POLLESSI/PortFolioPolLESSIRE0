@@ -15,5 +15,26 @@ namespace PortFolioPolLESSIRE0.BLL.Interfaces
         Task<bool> AddInterestAsync(Interest interest);
         void AddInterest(Interest interest);
         Task<Interest?> GetByIdInterestAsync(int id);
+        Interest? UpdateInterest(int id, string name, string description);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Copyrite https://github.com/POLLESSI

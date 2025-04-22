@@ -14,5 +14,27 @@ namespace PortFolioPolLESSIRE0.DAL.Interfaces
         Task<bool> AddProjectAsync(Project project);
         void AddProject(Project project);
         Task<Project?> GetByIdProjectAsync(int id);
+        Project? UpdateProject(int id, string name, string description, string url, DateTime startDate, DateTime endDate);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Copyrite https://github.com/POLLESSI

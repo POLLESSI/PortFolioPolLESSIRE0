@@ -65,5 +65,27 @@ namespace PortFolioPolLESSIRE0.Controllers
             return BadRequest("Registration Error");
 
         }
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateInterest(int id, string name, string description)
+        {
+            _interestRepository.UpdateInterest(id, name, description);
+            return Ok();
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Copyrite https://github.com/POLLESSI

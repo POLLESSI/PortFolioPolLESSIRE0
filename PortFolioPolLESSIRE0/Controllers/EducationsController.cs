@@ -64,5 +64,25 @@ namespace PortFolioPolLESSIRE0.Controllers
             }
             return BadRequest("Registration Error");
         }
+        [HttpPut("{id}")]
+        public IActionResult UpdateEducation(int id, string school, string fieldOfStudy, DateTime startDate, DateTime endDate, string description)
+        {
+            _educationRepository.UpdateEducation(id, school, fieldOfStudy, startDate, endDate, description);
+            return Ok();
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Copyrite https://github.com/POLLESSI

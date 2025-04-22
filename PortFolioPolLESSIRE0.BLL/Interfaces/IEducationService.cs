@@ -15,5 +15,23 @@ namespace PortFolioPolLESSIRE0.BLL.Interfaces
         Task<bool> AddEducationAsync(Education education);
         void AddEducation(Education education);
         Task<Education?> GetByIdEducationAsync(int id);
+        Education? UpdateEducation(int id, string school, string degree, DateTime startDate, DateTime endDate, string description);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Copyrite https://github.com/POLLESSI

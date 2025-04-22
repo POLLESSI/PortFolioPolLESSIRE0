@@ -63,6 +63,25 @@ namespace PortFolioPolLESSIRE0.Controllers
             }
             return BadRequest("Registration Error");
         }
+        [HttpPut("{id}")]
+        public IActionResult UpdateProject(int id, string name, string description, string url, DateTime startDate, DateTime endDate)
+        {
+            _projectRepository.UpdateProject(id, name, description, url, startDate, endDate);
+            return Ok();
+        }
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+//Copyrite https://github.com/POLLESSI

@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.SignalR.Client;
 using Microsoft.AspNetCore.Components;
 using PortFolioPolLESSIRE0.DAL.Entities;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace PortFolioPolLESSIRE0.BLL.Services
 {
@@ -78,5 +80,40 @@ namespace PortFolioPolLESSIRE0.BLL.Services
                 return null;
             }
         }
+
+        public Education UpdateEducation(int id, string school, string degree, DateTime startDate, DateTime endDate, string description)
+        {
+            try
+            {
+                var UpdateEducation = _educationRepository.UpdateEducation(id, school, degree, startDate, endDate, description);
+                return UpdateEducation;
+            }
+            catch (System.ComponentModel.DataAnnotations.ValidationException ex)
+            {
+
+                Console.WriteLine($"Validation error : {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error updating education : {ex}");
+            }
+            return new Education();
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Copyrite https://github.com/POLLESSI

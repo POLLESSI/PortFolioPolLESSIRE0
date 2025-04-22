@@ -21,3 +21,15 @@ namespace PortFolioPolLESSIRE0.DTOs
         public string Phone { get; set; }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+//Copyrite https://github.com/POLLESSI

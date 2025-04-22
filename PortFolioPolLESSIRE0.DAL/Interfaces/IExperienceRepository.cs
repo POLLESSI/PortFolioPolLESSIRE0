@@ -14,5 +14,24 @@ namespace PortFolioPolLESSIRE0.DAL.Interfaces
         Task<bool> AddExperienceAsync(Experience experience);
         void AddExperience(Experience experience);
         Task<Experience?> GetByIdExperienceAsync(int id);
+        Experience? UpdateExperience(int id, string company, string position, string description, DateTime startDate, DateTime endDate);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Copyrite https://github.com/POLLESSI

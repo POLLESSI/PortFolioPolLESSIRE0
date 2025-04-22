@@ -27,3 +27,18 @@ namespace PortFolioPolLESSIRE0.DTOs
         public DateTime EndDate { get; set; }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Copyrite https://github.com/POLLESSI

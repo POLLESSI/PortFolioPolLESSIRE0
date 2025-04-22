@@ -14,5 +14,26 @@ namespace PortFolioPolLESSIRE0.DAL.Interfaces
         Task<bool> AddSkillAsync(Skill skill);
         void AddSkill(Skill skill);
         Task<Skill?> GetByIdSkillAsync(int id);
+        Skill? UpdateSkill(int id, string name, string level, string description);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Copyrite https://github.com/POLLESSI

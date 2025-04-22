@@ -8,6 +8,8 @@ using System.Data.SqlClient;
 using PortFolioPolLESSIRE0.DAL.Interfaces;
 using PortFolioPolLESSIRE0.DAL.Entities;
 using System.Data;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace PortFolioPolLESSIRE0.DAL.Repositories
 {
@@ -97,5 +99,45 @@ namespace PortFolioPolLESSIRE0.DAL.Repositories
                 return null;
             }
         }
+
+        public Interest UpdateInterest(int id, string name, string description)
+        {
+            try
+            {
+                string sql = "UPDATE Interest SET Name = @name, Description = @description WHERE Id = @id";
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@name", name);
+                parameters.Add("@description", description);
+                return _connection.QueryFirst<Interest?>(sql, parameters);
+            }
+            catch (System.ComponentModel.DataAnnotations.ValidationException ex)
+            {
+
+                Console.WriteLine($"Validation error : {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error updating interest : {ex}");
+            }
+            return new Interest();
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Copyrite https://github.com/POLLESSI

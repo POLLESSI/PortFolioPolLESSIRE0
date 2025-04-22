@@ -93,3 +93,23 @@ namespace PortFolioPolLESSIRE0.Tools
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Copyrite https://github.com/POLLESSI

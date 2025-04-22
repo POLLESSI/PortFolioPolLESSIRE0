@@ -25,3 +25,15 @@ namespace PortFolioPolLESSIRE0.DTOs
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+//Copyrite https://github.com/POLLESSI
+

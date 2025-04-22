@@ -18,3 +18,41 @@ CREATE TRIGGER [dbo].[OnDeleteLanguage]
 		UPDATE Language SET Active = 0
 		WHERE Id = (SELECT Id FROM deleted)
 	END
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--Copyrite https://github.com/POLLESSI

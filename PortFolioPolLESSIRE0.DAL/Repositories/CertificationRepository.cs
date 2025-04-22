@@ -8,6 +8,8 @@ using System.Data.SqlClient;
 using PortFolioPolLESSIRE0.DAL.Interfaces;
 using PortFolioPolLESSIRE0.DAL.Entities;
 using System.Data;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace PortFolioPolLESSIRE0.DAL.Repositories
 {
@@ -103,5 +105,53 @@ namespace PortFolioPolLESSIRE0.DAL.Repositories
                 return null;
             }
         }
+
+        public Certification UpdateCertification(int id, string name, string authority, string licenceNumber, string url, DateTime licenceDate)
+        {
+            try
+            {
+                string sql = "UPDATE Certification SET Name = @name, Authority = @authority, LicenceNumber = @licenceNumber, Url = @url, LicenceDate = @licenceDate WHERE Id = @id";
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@name", name);
+                parameters.Add("@authority", authority);
+                parameters.Add("@licenceNumber", licenceNumber);
+                parameters.Add("@url", url);
+                
+                return _connection.QueryFirst<Certification?>(sql, parameters);
+            }
+            catch (System.ComponentModel.DataAnnotations.ValidationException ex)
+            {
+
+                Console.WriteLine($"Validation error : {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error updating certification : {ex}");
+            }
+            return new Certification();
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Copyrite https://github.com/POLLESSI

@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.SignalR.Client;
 using Microsoft.AspNetCore.Components;
 using PortFolioPolLESSIRE0.DAL.Entities;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace PortFolioPolLESSIRE0.BLL.Services
 {
@@ -82,5 +84,46 @@ namespace PortFolioPolLESSIRE0.BLL.Services
                 return null;
             }
         }
+
+        public Certification UpdateCertification(int id, string name, string authority, string licenceNumber, string url, DateTime licenceDate)
+        {
+            try
+            {
+                var UpdateCertification = _certificationRepository.UpdateCertification(id, name, authority, licenceNumber, url, licenceDate);
+                return UpdateCertification;
+            }
+            catch (System.ComponentModel.DataAnnotations.ValidationException ex)
+            {
+
+                Console.WriteLine($"Validation error : {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error updating certification : {ex}");
+            }
+            return new Certification();
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Copyrite https://github.com/POLLESSI

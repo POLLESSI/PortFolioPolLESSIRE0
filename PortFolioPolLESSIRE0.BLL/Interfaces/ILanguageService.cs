@@ -15,5 +15,26 @@ namespace PortFolioPolLESSIRE0.BLL.Interfaces
         Task<bool>   AddLanguageAsync(Language language);
         void AddLanguage(Language language);
         Task<Language?> GetByIdLanguageAsync(int id);
+        Language? UpdateLanguage(int id, string name, string level);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Copyrite https://github.com/POLLESSI

@@ -8,6 +8,8 @@ using System.Data.SqlClient;
 using PortFolioPolLESSIRE0.DAL.Interfaces;
 using PortFolioPolLESSIRE0.DAL.Entities;
 using System.Data;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace PortFolioPolLESSIRE0.DAL.Repositories
 {
@@ -99,5 +101,51 @@ namespace PortFolioPolLESSIRE0.DAL.Repositories
                 return null;
             }
         }
+
+        public Skill UpdateSkill(int id, string name, string level, string description)
+        {
+            try
+            {
+                string sql = "UPDATE Skill SET Name = @name, Level = @level, Description = @description WHERE Activity_Id = @activity_Id";
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@name", name);
+                parameters.Add("@level", level);
+                parameters.Add("@description", description);
+                return _connection.QueryFirst<Skill?>(sql, parameters);
+            }
+            catch (System.ComponentModel.DataAnnotations.ValidationException ex)
+            {
+
+                Console.WriteLine($"Validation error : {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error updating skill : {ex}");
+            }
+            return new Skill();
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Copyrite https://github.com/POLLESSI

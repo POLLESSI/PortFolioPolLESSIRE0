@@ -51,11 +51,20 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowBlazorClient", policy =>
     {
-        policy.WithOrigins("https://localhost:7282")
+        policy.WithOrigins("https://localhost:7109", "http://localhost:5270")
               .AllowAnyMethod()
-              .AllowAnyHeader();
+              .AllowAnyHeader()
+              .AllowCredentials();
     });
 });
+//builder.WebHost.ConfigureKestrel(options =>
+//{
+//    options.ListenLocalhost(7210, listenOptions =>
+//    {
+//        listenOptions.UseHttps(); // nécessite cert local (VS l’ajoute)
+//    });
+//});
+    
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -99,3 +108,27 @@ app.Use(async (context, next) =>
 //app.MapControllers();
 
 app.Run();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Copyrite https://github.com/POLLESSI

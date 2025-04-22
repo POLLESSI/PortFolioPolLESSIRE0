@@ -14,5 +14,25 @@ namespace PortFolioPolLESSIRE0.DAL.Interfaces
         Task<bool> AddContactAsync(Contact contact);
         void AddContact(Contact contact);
         Task<Contact?> GetByIdContactAsync(int id);
+        Contact? UpdateContact(int id, string name, string email, string phone);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Copyrite https://github.com/POLLESSI

@@ -5,13 +5,15 @@ using PortFolioPolLESSIRE0.BLL.Interfaces;
 using PortFolioPolLESSIRE0.BLL.Services;
 using PortFolioPolLESSIRE0.DAL.Entities;
 using PortFolioPolLESSIRE0.DAL.Interfaces;
+using PortFolioPolLESSIRE0.DAL.Repositories;
 using PortFolioPolLESSIRE0.DTOs;
 using PortFolioPolLESSIRE0.Tools;
 using PortFolioPolLESSIRE1.API.Hubs;
 
 namespace PortFolioPolLESSIRE0.Controllers
 {
-    [Route("api/[controller]")]
+    //[Route("api/[controller]")]
+    [Route("api/certifications")]
     [ApiController]
     public class CertificationsController : ControllerBase
     {
@@ -32,6 +34,7 @@ namespace PortFolioPolLESSIRE0.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Certification>> GetByIdCertificationAsync(int id)
         {
+            Console.WriteLine($"[DEBUG] Appel GetByIdCertificationAsync with id={id}"); // 🔍 log console
             if (id <= 0)
             {
                 return BadRequest("The certification ID must be a positive integer");
@@ -64,5 +67,29 @@ namespace PortFolioPolLESSIRE0.Controllers
 
             return BadRequest("Registration error");
         }
+        [HttpPut("{id}")]
+        public IActionResult UpdateCertification(int id, string name, string authority, string licenceNumber, string url, DateTime licenceDate)
+        {
+            _certificationRepository.UpdateCertification(id, name, authority, licenceNumber, url, licenceDate);
+            return Ok();
+        }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //Copyrite https://github.com/POLLESSI
 }

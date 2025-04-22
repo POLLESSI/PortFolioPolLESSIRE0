@@ -8,6 +8,8 @@ using System.Data.SqlClient;
 using PortFolioPolLESSIRE0.DAL.Interfaces;
 using PortFolioPolLESSIRE0.DAL.Entities;
 using System.Data;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace PortFolioPolLESSIRE0.DAL.Repositories
 {
@@ -100,5 +102,46 @@ namespace PortFolioPolLESSIRE0.DAL.Repositories
                 return null;
             }
         }
+
+        public Contact UpdateContact(int id, string name, string email, string phone)
+        {
+            try
+            {
+                string sql = "UPDATE Contact SET Name = @name, Email = @email, Phone = @phone WHERE Id = @id";
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@name", name);
+                parameters.Add("@email", email);
+                parameters.Add("@phone", phone);
+                return _connection.QueryFirst<Contact?>(sql, parameters);
+            }
+            catch (System.ComponentModel.DataAnnotations.ValidationException ex)
+            {
+
+                Console.WriteLine($"Validation error : {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error updating contact : {ex}");
+            }
+            return new Contact();
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Copyrite https://github.com/POLLESSI

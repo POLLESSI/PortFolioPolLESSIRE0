@@ -22,3 +22,34 @@ CREATE TRIGGER [dbo].[OnDeleteCertification]
 		UPDATE Certification SET Active = 0
 		WHERE Id IN (SELECT Id FROM deleted)
 	END
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	--Copyrite https://github.com/POLLESSI

@@ -64,5 +64,27 @@ namespace PortFolioPolLESSIRE0.Controllers
             }
             return BadRequest("Registration Error");
         }
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateSkill(int id, string name, string level, string description)
+        {
+            _skillRepository.UpdateSkill(id, name, level, description);
+            return Ok();
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Copyrite https://github.com/POLLESSI

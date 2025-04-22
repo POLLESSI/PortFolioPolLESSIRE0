@@ -9,3 +9,38 @@
 --	DECLARE @hashedValue VARBINARY(64) = CONVERT(BINARY(64), CONCAT(HASHBYTES('SHA_512', (@Pwd + CAST(@SecurityStamp AS VARCHAR(36)))), @SecurityStamp))
 --	RETURN @hashedValue
 --END
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--Copyrite https://github.com/POLLESSI
